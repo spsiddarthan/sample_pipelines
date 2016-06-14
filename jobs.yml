@@ -9,7 +9,8 @@ jobs:
   - name: VR-beta-ecs-job1
     type: ecsDeploy
     steps:
-      - GET: VR-betajob1
+      #- GET: VR-betajob1
       - GET: VR-ecs
+      
 
   
