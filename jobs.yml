@@ -1,32 +1,15 @@
 jobs:
-  - name: dv-man
+  - name: VR-betajob1
     type: manifest
     steps:
-      - GET: dv-image
-      - GET: dv-opts
-      - GET: dv-params
+      - GET: VR-image1
+      - GET: VR-opts
+      - GET: VR-params
 
-  - name: dv-test
+  - name: VR-beta-ecs-job1
     type: ecsDeploy
     steps:
-      - GET: dv-man
-      - GET: env-test
+      - GET: VR-betajob1
+      - GET: VR-ecs
 
-  - name: box-man
-    type: manifest
-    steps:
-      - GET: box-image
-      - GET: box-opts
-      - GET: box-params
-
-  - name: box-test
-    type: ecsDeploy
-    steps:
-      - GET: box-man
-      - GET: env-test
-
-  - name: box-prod
-    type: ecsDeploy
-    steps:
-      - GET: box-man
-      - GET: env-prod
+  
