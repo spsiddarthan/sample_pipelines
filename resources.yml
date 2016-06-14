@@ -24,7 +24,7 @@ resources:
   
   - name: VR-ecs
     type: ecsCluster
-    integration: sid-acs
+    integration: siddarthan
     source:
       name : "default" #name of the cluster we are deploying
       region: "us-west-2"
