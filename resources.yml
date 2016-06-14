@@ -26,14 +26,8 @@ resources:
     type: ecsCluster
     integration: jun14-aws-integ
     source:
-      name : "prod-aws" #name of the cluster we are deploying
-      region: "us-east-1"
-
-  - name: env-test
-    type: ecsCluster
-    integration: ric03uec-ecs
-    source:
       name : "default" #name of the cluster we are deploying
       region: "us-west-2"
 
+ 
   
