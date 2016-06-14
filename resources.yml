@@ -1,13 +1,13 @@
 resources:
-  - name: dv-image 
+  - name: VR-image1
     type: image
-    integration: ric03uec-dh
+    integration: jun14-dock-integ
     source:
       name: "library/nginx"
       isPull: false
       tag: latest
 
-  - name: dv-opts
+  - name: VR-opts
     type: dockerOptions
     source:
       memory: 64
@@ -15,39 +15,16 @@ resources:
       portMappings:
         - 80:80
 
-  - name: dv-params
+  - name: VR-params
     type: params
     source:
       params:
         MONGO_API_URL: "localhost:28017"
 
-  - name: box-image
-    type: image
-    integration: ric03uec-dh
-    source:
-      name: "aye0aye/box"
-      isPull: false tag: "master.35"
-
-  - name: box-params
-    type: params
-    source:
-      params:
-        DB_HOST: "ds015700.mlab.com"
-        DB_NAME: "ayeaye"
-        DB_PORT: "15700"
-        DB_USERNAME: "aye0aye"
-        DB_PASSWORD: "aye0aye"
-        ENVIRONMENT: "test-aws"
-
-  - name: box-opts
-    type: dockerOptions
-    source:
-      memory: 64
-      cpu-shares: 512
-
-  - name: env-prod
+  
+  - name: VR-ecs
     type: ecsCluster
-    integration: ric03uec-ecs
+    integration: jun14-aws-integ
     source:
       name : "prod-aws" #name of the cluster we are deploying
       region: "us-east-1"
@@ -56,10 +33,7 @@ resources:
     type: ecsCluster
     integration: ric03uec-ecs
     source:
-      name : "test-aws" #name of the cluster we are deploying
-      region: "us-east-1"
+      name : "default" #name of the cluster we are deploying
+      region: "us-west-2"
 
-  - name: box-scaler
-    type: replicas
-    source:
-      count: 1
+  
