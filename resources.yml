@@ -1,7 +1,7 @@
 resources:
   - name: VR-image1
     type: image
-    integration: jun14-dock-integ
+    integration: docker-int
     source:
       name: "library/nginx"
       isPull: false
@@ -24,7 +24,7 @@ resources:
   
   - name: VR-ecs
     type: ecsCluster
-    integration: jun14-aws-integ
+    integration: sid-acs
     source:
       name : "default" #name of the cluster we are deploying
       region: "us-west-2"
