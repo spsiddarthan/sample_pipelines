@@ -23,3 +23,9 @@ resources:
     pointer:
       sourceName : "testCL"
       region: "us-west-2"
+
+  - name: env-dcl
+    type: dclCluster
+    integration: jatin-dcl
+    pointer:
+     sourceName : "cluster-dcl"
