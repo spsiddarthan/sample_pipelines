@@ -1,5 +1,5 @@
 resources:
-  - name: ecs-nginx
+  - name: box-nginx
     type: image
     integration: jatin-docker
     pointer:
@@ -8,7 +8,7 @@ resources:
     initialVersion:
       versionName: latest
       
-  - name: ecs-sn
+  - name: box-sn
     type: image
     integration: jatin-docker
     pointer:
