@@ -1,14 +1,12 @@
 jobs:
-  - name: ecs-man
+  - name: box-man
     type: manifest
     steps:
-      - GET: ecs-nginx
+      - GET: box-nginx
       - GET: trigger-dv-man
 
-  - name: ecs-upgrade-deploy
-    type: ecsDeploy
-    options:
-      deployMethod: upgrade
+  - name: dcl-upgrade-deploy
+    type: dclDeploy
     steps:
-      - GET: ecs-man
-      - GET: ecs-cluster
+      - GET: box-man
+      - GET: dcl-cluster
