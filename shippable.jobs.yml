@@ -1,82 +1,14 @@
 jobs:
-  - name: dv-man
+  - name: ecs-man
     type: manifest
     steps:
-      - GET: dv-image
-      - GET: dv-opts
-      - GET: dv-params
-        applyTo:
-          - dv-image
+      - GET: ecs-nginx
       - GET: trigger-dv-man
 
-  - name: dv-test
+  - name: ecs-upgrade-deploy
     type: ecsDeploy
-    steps:
-      - GET: dv-man
-      - GET: env-test
-
-  - name: box-man
-    type: manifest
-    steps:
-      - GET: box-image
-      - GET: box-opts
-      - GET: box-params
-
-  - name: box-test
-    type: ecsDeploy
-    steps:
-      - GET: box-man
-      - GET: env-test
-
-  - name: box-dcl
-    type: dclDeploy
-    steps:
-      - GET: box-man
-      - GET: env-dcl
-
-  - name: box-gke
-    type: gkeDeploy
-    steps:
-      - GET: box-man
-      - GET: env-gke
-
-  - name: box-prod
-    type: ecsDeploy
-    steps:
-      - GET: box-man
-      - GET: env-prod
-
-  - name: multi-manifest
-    type:  ecsDeploy
-    steps:
-      - GET: box-man
-      - GET: dv-man
-      - GET: env-test
-
-  - name: release-one
-    type: release
     options:
-      action: minor
+      deployMethod: upgrade
     steps:
-      - GET: version-resource
-      - GET: dv-man
-
-  - name: box-tripub-man
-    type: manifest
-    steps:
-      - GET: box-image
-      - GET: box-tripub-opts
-
-  - name: box-tripub
-    type: tripubDeploy
-    steps:
-      - GET: box-tripub-man
-      - GET: env-tripub
-
-  - name: infra-provision
-    type: runSh
-    steps:
-      GET: infra-repo
-      TASK:
-        - script: ls
-        - script: ./GET/infra-repo/infra-repo/provision.sh
+      - GET: ecs-man
+      - GET: ecs-cluster
