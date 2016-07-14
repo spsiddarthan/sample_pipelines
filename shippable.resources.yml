@@ -1,111 +1,25 @@
 resources:
-  - name: dv-image
+  - name: ecs-nginx
     type: image
-    integration: ric03uec-dh
+    integration: jatin-docker
     pointer:
       sourceName: "library/nginx"
       isPull: false
-    initialVersion:
+    initialVersion
       versionName: latest
-
-  - name: dv-opts
-    type: dockerOptions
-    pointer:
-      memory: 64
-      cpuShares: 256
-      portMappings:
-        - "80:80"
-
-  - name: dv-params
-    type: params
-    pointer:
-      params:
-        MONGO_API_URL: "localhost:28017"
-
-  - name: box-image
+      
+  - name: ecs-sn
     type: image
-    integration: ric03uec-dh
+    integration: jatin-docker
     pointer:
-      sourceName: "aye0aye/box"
+      sourceName: "scriptnull/sample_node"
       isPull: false
     initialVersion:
-      versionName: "master.35"
+      versionName: "dc.pipeline.3"
 
-  - name: box-params
-    type: params
-    pointer:
-      params:
-        DB_HOST: "ds015700.mlab.com"
-        DB_NAME: "ayeaye"
-        DB_PORT: "15700"
-        DB_USERNAME: "aye0aye"
-        DB_PASSWORD: "aye0aye"
-        ENVIRONMENT: "test-aws"
-
-  - name: box-opts
-    type: dockerOptions
-    pointer:
-      memory: 64
-      cpuShares: 512
-
-  - name: env-prod
+  - name: ecs-cluster
     type: ecsCluster
-    integration: ric03uec-ecs
+    integration: jatin-aws
     pointer:
-      sourceName : "prod-aws" #name of the cluster we are deploying
-      region: "us-east-1"
-
-  - name: env-test
-    type: ecsCluster
-    integration: ric03uec-ecs
-    pointer:
-      sourceName : "test-aws" #name of the cluster we are deploying
-      region: "us-east-1"
-
-  - name: box-scaler
-    type: replicas
-    pointer:
-      count: 1
-
-  - name: env-dcl
-    type: dclCluster
-    integration: sid-dcl
-    pointer:
-     sourceName : "docker-cloud-node" #name of the cluster we are deploying
-
-  - name: env-gke
-    type: gkeCluster
-    integration: gke-int
-    pointer:
-      sourceName: "sid-test-gke-cluster-1" #name of the cluster we are deploying.
-      region: "us-central1-b"
-
-  - name: version-resource
-    type: version
-    initialVersion:
-      versionName: "0.0.1-beta"
-
-  - name: env-tripub
-    type: tripubCluster
-    integration: tripub-int
-    pointer:
-      region: "us-east-1"
-
-  - name: box-tripub-opts
-    type: dockerOptions
-    pointer:
-      memory: 128
-      #Triton has standard values for memory 128,512 etc.
-      #If non standard values is given in the memory, it chooses the closest
-      #standard memory value. Triton also uses this value to choose the plan
-      #and cpu-shares
-      publishAllPorts : true
-      #publishAllPorts assigns a public ip to the container and gives endpoint
-      #for accessing the exposed ports.
-
-  - name: infra-repo
-    type: gitRepo
-    integration: github
-    pointer:
-      sourceName: shippableSamples/infra-repo
-      branch: master
+      sourceName : "testCL"
+      region: "us-west-2"
