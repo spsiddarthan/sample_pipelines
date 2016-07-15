@@ -76,3 +76,19 @@ resources:
         foo: "boo"
         DB_PORT: "12000"
 
+  - name: box-opts
+    type: dockerOptions
+    version:
+      memory: 64
+      cpuShares: 4
+      portMappings:
+        - "80:80"
+
+  - name: box-opts-override
+    type: dockerOptions
+    version:
+      memory: 64
+      cpuShares: 2
+
+
+
