@@ -90,5 +90,14 @@ resources:
       memory: 64
       cpuShares: 2
 
+  - name: box-scaler
+    type: replicas
+    version:
+      count: 1
+
+  - name: box-scaler-override
+    type: replicas
+    version:
+      count: 2
 
 
