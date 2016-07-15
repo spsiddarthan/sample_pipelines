@@ -81,6 +81,8 @@ resources:
     version:
       memory: 64
       cpuShares: 4
+      portMappings:
+        - "80:80"
 
   - name: box-opts-override
     type: dockerOptions

@@ -3,7 +3,7 @@ jobs:
     type: manifest
     steps:
       - GET: box-sn
-      - GET: box-opts
+      - GET: box-nginx
       - GET: trigger-dv-man
 
   # - name: b-ecs-deploy
