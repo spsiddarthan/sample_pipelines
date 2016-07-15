@@ -98,6 +98,6 @@ resources:
   - name: box-scaler-override
     type: replicas
     version:
-      count: 2
+      count: 3
 
 
