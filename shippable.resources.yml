@@ -30,3 +30,23 @@ resources:
       sourceName: "testCL"
     version:
       region: "us-west-2"
+
+  - name: gke-cluster
+    type: gkeCluster
+    integration: jatin-gke
+    pointer:
+      sourceName: "micro-cluster"
+    version:
+      region: "us-east1-d"
+
+  - name: ddc-cluster
+    type: ddcCluster
+    integration: jatin-ddc
+    pointer:
+      sourceName: "ddc-cluster"
+
+  - name: dcl-cluster
+    type: dclCluster
+    integration: jatin-dcl
+    pointer:
+      sourceName: "cluster-dcl"

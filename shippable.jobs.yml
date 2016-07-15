@@ -5,17 +5,38 @@ jobs:
       - GET: box-sn
       - GET: trigger-dv-man
 
-  - name: box-man-2
-    type: manifest
-    steps:
-      - GET: box-nginx
-      - GET: trigger-dv-man
-
   - name: ecs-deploy
     type: ecsDeploy
+    options:
+      deployMethod: upgrade
+    steps:
+      - GET: box-man-1
+      - GET: ecs-cluster
+
+  - name: tri-deploy
+    type: tripubDeploy
+    options:
+      deployMethod: upgrade
+    steps:
+      - GET: box-man-1
+      - GET: tri-cluster
+
+  - name: gke-deploy
+    type: gkeDeploy
     options:
       deployMethod: blueGreen
     steps:
       - GET: box-man-1
-      - GET: box-man-2
-      - GET: ecs-cluster
+      - GET: gke-cluster
+
+  - name: ddc-deploy
+    type: ddcDeploy
+    steps:
+      - GET: box-man-1
+      - GET: ddc-cluster
+
+  - name: dcl-deploy
+    type: dclDeploy
+    steps:
+      - GET: box-man-1
+      - GET: dcl-cluster
