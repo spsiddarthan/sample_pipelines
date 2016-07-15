@@ -69,3 +69,10 @@ resources:
         foo: "bar"
         DB_PORT: "20000"
 
+  - name: box-params-2
+    type: params
+    version:
+      params:
+        foo: "boo"
+        DB_PORT: "12000"
+

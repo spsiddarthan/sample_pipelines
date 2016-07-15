@@ -3,7 +3,7 @@ jobs:
     type: manifest
     steps:
       - GET: box-sn
-      - GET: box-params-override
+      - GET: box-params-2
       - GET: trigger-dv-man
 
   # - name: b-ecs-deploy
