@@ -50,3 +50,22 @@ resources:
     integration: jatin-dcl
     pointer:
       sourceName: "cluster-dcl"
+
+  - name: box-params
+    type: params
+    version:
+      params:
+        DB_HOST: "ds015700.mlab.com"
+        DB_NAME: "ayeaye"
+        DB_PORT: "15700"
+        DB_USERNAME: "aye0aye"
+        DB_PASSWORD: "aye0aye"
+        ENVIRONMENT: "test-aws"
+
+  - name: box-params-override
+    type: params
+    version:
+      params:
+        foo: "bar"
+        DB_PORT: "20000"
+

@@ -2,7 +2,8 @@ jobs:
   - name: beta-box-man
     type: manifest
     steps:
-      - GET: box-nginx
+      - GET: box-sn
+      - GET: box-params
       - GET: trigger-dv-man
 
   # - name: b-ecs-deploy
@@ -28,6 +29,7 @@ jobs:
     steps:
       - GET: beta-box-man
       - GET: gke-cluster
+      - GET: box-params-override
 
   # - name: b-ddc-deploy
   #   type: ddcDeploy
