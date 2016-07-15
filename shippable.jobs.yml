@@ -3,7 +3,7 @@ jobs:
     type: manifest
     steps:
       - GET: box-sn
-      - GET: box-opts
+      - GET: box-opts-override
       - GET: trigger-dv-man
 
   # - name: b-ecs-deploy
@@ -29,7 +29,6 @@ jobs:
     steps:
       - GET: beta-box-man
       - GET: gke-cluster
-      - GET: box-opts-override
 
   # - name: b-ddc-deploy
   #   type: ddcDeploy
