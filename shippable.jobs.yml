@@ -2,7 +2,7 @@ jobs:
   - name: beta-boxMan
     type: manifest
     steps:
-      - GET: box-sn
+      - GET: box-nginx
       - GET: trigger-dv-man
       - TASK: managed
 
@@ -25,7 +25,7 @@ jobs:
   - name: beta-gkeDeploy
     type: gkeDeploy
     steps:
-      - GET: beta-Man
+      - GET: beta-boxMan
       - GET: gkeCluster
       - TASK: managed
         deployMethod: blueGreen
