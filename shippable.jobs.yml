@@ -1,5 +1,5 @@
 jobs:
-  - name: beta-box-man
+  - name: beta-boxMan
     type: manifest
     steps:
       - GET: box-sn
@@ -23,10 +23,10 @@ jobs:
   #     - GET: b-box-man
   #     - GET: tri-cluster
 
-  - name: beta-gke-deploy
+  - name: beta-gkeDeploy
     type: gkeDeploy
     steps:
-      - GET: beta-box-man
+      - GET: beta-Man
       - GET: gke-cluster
       - TASK: managed
         deployMethod: blueGreen
