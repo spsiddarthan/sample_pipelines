@@ -3,7 +3,6 @@ jobs:
     type: manifest
     steps:
       - GET: box-sn
-      - GET: box-nginx
       - GET: trigger-dv-man
       - TASK: managed
 
@@ -27,7 +26,7 @@ jobs:
     type: gkeDeploy
     steps:
       - GET: beta-Man
-      - GET: gke-cluster
+      - GET: gkeCluster
       - TASK: managed
         deployMethod: blueGreen
 
