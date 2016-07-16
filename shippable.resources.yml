@@ -17,87 +17,86 @@ resources:
     seed:
       versionName: "dc.pipeline.3"
 
-  - name: tri-cluster
-    type: tripubCluster
-    integration: jatin-triton
-    version:
-      region: "us-east-1"
+  # - name: tri-cluster
+  #   type: tripubCluster
+  #   integration: jatin-triton
+  #   version:
+  #     region: "us-east-1"
 
-  - name: ecs-cluster
-    type: ecsCluster
-    integration: jatin-ecs
-    pointer:
-      sourceName: "testCL"
-    version:
-      region: "us-west-2"
+  # - name: ecs-cluster
+  #   type: ecsCluster
+  #   integration: jatin-ecs
+  #   pointer:
+  #     sourceName: "testCL"
+  #   version:
+  #     region: "us-west-2"
 
-  - name: gke-cluster
+  - name: gkeCluster
     type: gkeCluster
     integration: jatin-gke
     pointer:
       sourceName: "micro-cluster"
-    version:
       region: "us-east1-d"
 
-  - name: ddc-cluster
-    type: ddcCluster
-    integration: jatin-ddc
-    pointer:
-      sourceName: "ddc-cluster"
+  # - name: ddc-cluster
+  #   type: ddcCluster
+  #   integration: jatin-ddc
+  #   pointer:
+  #     sourceName: "ddc-cluster"
 
-  - name: dcl-cluster
-    type: dclCluster
-    integration: jatin-dcl
-    pointer:
-      sourceName: "cluster-dcl"
+  # - name: dcl-cluster
+  #   type: dclCluster
+  #   integration: jatin-dcl
+  #   pointer:
+  #     sourceName: "cluster-dcl"
 
-  - name: box-params
-    type: params
-    version:
-      params:
-        DB_HOST: "ds015700.mlab.com"
-        DB_NAME: "ayeaye"
-        DB_PORT: "15700"
-        DB_USERNAME: "aye0aye"
-        DB_PASSWORD: "aye0aye"
-        ENVIRONMENT: "test-aws"
+  # - name: box-params
+  #   type: params
+  #   version:
+  #     params:
+  #       DB_HOST: "ds015700.mlab.com"
+  #       DB_NAME: "ayeaye"
+  #       DB_PORT: "15700"
+  #       DB_USERNAME: "aye0aye"
+  #       DB_PASSWORD: "aye0aye"
+  #       ENVIRONMENT: "test-aws"
 
-  - name: box-params-override
-    type: params
-    version:
-      params:
-        foo: "bar"
-        DB_PORT: "20000"
+  # - name: box-params-override
+  #   type: params
+  #   version:
+  #     params:
+  #       foo: "bar"
+  #       DB_PORT: "20000"
 
-  - name: box-params-2
-    type: params
-    version:
-      params:
-        foo: "boo"
-        DB_PORT: "12000"
+  # - name: box-params-2
+  #   type: params
+  #   version:
+  #     params:
+  #       foo: "boo"
+  #       DB_PORT: "12000"
 
-  - name: box-opts
-    type: dockerOptions
-    version:
-      memory: 64
-      cpuShares: 4
-      portMappings:
-        - "80:80"
+  # - name: box-opts
+  #   type: dockerOptions
+  #   version:
+  #     memory: 64
+  #     cpuShares: 4
+  #     portMappings:
+  #       - "80:80"
 
-  - name: box-opts-override
-    type: dockerOptions
-    version:
-      memory: 64
-      cpuShares: 2
+  # - name: box-opts-override
+  #   type: dockerOptions
+  #   version:
+  #     memory: 64
+  #     cpuShares: 2
 
-  - name: box-scaler
-    type: replicas
-    version:
-      count: 1
+  # - name: box-scaler
+  #   type: replicas
+  #   version:
+  #     count: 1
 
-  - name: box-scaler-override
-    type: replicas
-    version:
-      count: 3
+  # - name: box-scaler-override
+  #   type: replicas
+  #   version:
+  #     count: 3
 
 

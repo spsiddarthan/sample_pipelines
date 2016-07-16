@@ -5,6 +5,7 @@ jobs:
       - GET: box-sn
       - GET: box-nginx
       - GET: trigger-dv-man
+      - TASK: managed
 
   # - name: b-ecs-deploy
   #   type: ecsDeploy
@@ -24,11 +25,11 @@ jobs:
 
   - name: beta-gke-deploy
     type: gkeDeploy
-    options:
-      deployMethod: blueGreen
     steps:
       - GET: beta-box-man
       - GET: gke-cluster
+      - TASK: managed
+        deployMethod: blueGreen
 
   # - name: b-ddc-deploy
   #   type: ddcDeploy
