@@ -24,7 +24,8 @@ jobs:
   - name: b-tri-deploy
     type: tripubDeploy
     steps:
-      - IN: b-box-man
+      - IN: beta-boxMan-1
+      - IN: beta-boxMan-2
       - IN: tri-cluster
       - TASK: managed
         deployMethod: upgrade
