@@ -61,12 +61,12 @@ resources:
   #       DB_PASSWORD: "aye0aye"
   #       ENVIRONMENT: "test-aws"
 
-  # - name: box-params-override
-  #   type: params
-  #   version:
-  #     params:
-  #       foo: "bar"
-  #       DB_PORT: "20000"
+  - name: box-params-override
+    type: params
+    version:
+      params:
+        foo: "bar"
+        DB_PORT: "20000"
 
   # - name: box-params-2
   #   type: params
