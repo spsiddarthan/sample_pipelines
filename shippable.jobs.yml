@@ -21,14 +21,23 @@ jobs:
   #     - IN: b-box-man
   #     - IN: ecs-cluster
 
-  - name: b-tri-deploy
+  # - name: b-tri-deploy
+  #   type: tripubDeploy
+  #   steps:
+  #     - IN: beta-boxMan-1
+  #     - IN: beta-boxMan-2
+  #     - IN: tri-cluster
+  #     - TASK: managed
+  #       deployMethod: upgrade
+
+  - name: b-tri-deploy-bg
     type: tripubDeploy
     steps:
       - IN: beta-boxMan-1
       - IN: beta-boxMan-2
       - IN: tri-cluster
       - TASK: managed
-        deployMethod: upgrade
+        deployMethod: blueGreen
 
   # - name: beta-gkeDeploy
   #   type: gkeDeploy
