@@ -1,5 +1,5 @@
 resources:
-  - name: box-nginx
+  - name: box-nginx-1
     type: image
     integration: jatin-docker
     pointer:
@@ -8,7 +8,7 @@ resources:
     seed:
       versionName: latest
 
-  - name: box-sn
+  - name: box-sn-1
     type: image
     integration: jatin-docker
     pointer:
@@ -44,13 +44,13 @@ resources:
   #   pointer:
   #     sourceName: "ddc-cluster"
 
-  - name: dcl-cluster
+  - name: dcl-cluster-1
     type: dclCluster
     integration: jatin-dcl
     pointer:
       sourceName: "cluster-dcl"
 
-  - name: jatin-cluste
+  - name: jatin-cluster-1
     type: cluster
     integration: jatin-dcl
     pointer:
@@ -67,7 +67,7 @@ resources:
   #       DB_PASSWORD: "aye0aye"
   #       ENVIRONMENT: "test-aws"
 
-  - name: box-params-override
+  - name: box-params-override-1
     type: params
     version:
       params:

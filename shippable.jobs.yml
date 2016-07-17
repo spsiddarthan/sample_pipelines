@@ -1,16 +1,16 @@
 jobs:
-  - name: beta-boxMan-1
+  - name: beta-boxMan-1-1
     type: manifest
     steps:
       - IN: box-sn
       - IN: trigger-dv-man
       - TASK: managed
 
-  - name: beta-boxMan-2
+  - name: beta-boxMan-2-1
     type: manifest
     steps:
-      - IN: box-nginx
-      - IN: trigger-dv-man
+      - IN: box-nginx-1
+      - IN: trigger-dv-man-1
       - TASK: managed
 
   # - name: b-ecs-deploy
@@ -53,10 +53,10 @@ jobs:
   #     - IN: b-box-man
   #     - IN: ddc-cluster
 
-  - name: b-dcl-deploy
+  - name: b-dcl-deploy-1
     type: dclDeploy
     steps:
-      - IN: beta-boxMan-1
-      - IN: beta-boxMan-2
-      - IN: dcl-cluster
+      - IN: beta-boxMan-1-1
+      - IN: beta-boxMan-2-1
+      - IN: dcl-cluster-1
       - TASK: managed
