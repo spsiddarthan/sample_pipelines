@@ -30,14 +30,14 @@ jobs:
   #     - TASK: managed
   #       deployMethod: upgrade
 
-  - name: b-tri-deploy-bg
-    type: tripubDeploy
-    steps:
-      - IN: beta-boxMan-1
-      - IN: beta-boxMan-2
-      - IN: tri-cluster
-      - TASK: managed
-        deployMethod: blueGreen
+  # - name: b-tri-deploy-bg
+  #   type: tripubDeploy
+  #   steps:
+  #     - IN: beta-boxMan-1
+  #     - IN: beta-boxMan-2
+  #     - IN: tri-cluster
+  #     - TASK: managed
+  #       deployMethod: blueGreen
 
   # - name: beta-gkeDeploy
   #   type: gkeDeploy
@@ -53,8 +53,10 @@ jobs:
   #     - IN: b-box-man
   #     - IN: ddc-cluster
 
-  # - name: b-dcl-deploy
-  #   type: dclDeploy
-  #   steps:
-  #     - IN: b-box-man
-  #     - IN: dcl-cluster
+  - name: b-dcl-deploy
+    type: dclDeploy
+    steps:
+      - IN: beta-boxMan-1
+      - IN: beta-boxMan-2
+      - IN: dcl-cluster
+      - TASK: managed

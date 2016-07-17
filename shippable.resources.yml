@@ -17,11 +17,11 @@ resources:
     seed:
       versionName: "dc.pipeline.3"
 
-  - name: tri-cluster
-    type: tripubCluster
-    integration: jatin-triton
-    pointer:
-      region: "us-east-1"
+  # - name: tri-cluster
+  #   type: tripubCluster
+  #   integration: jatin-triton
+  #   pointer:
+  #     region: "us-east-1"
 
   # - name: ecs-cluster
   #   type: ecsCluster
@@ -44,11 +44,11 @@ resources:
   #   pointer:
   #     sourceName: "ddc-cluster"
 
-  # - name: dcl-cluster
-  #   type: dclCluster
-  #   integration: jatin-dcl
-  #   pointer:
-  #     sourceName: "cluster-dcl"
+  - name: dcl-cluster
+    type: dclCluster
+    integration: jatin-dcl
+    pointer:
+      sourceName: "cluster-dcl"
 
   # - name: box-params
   #   type: params
