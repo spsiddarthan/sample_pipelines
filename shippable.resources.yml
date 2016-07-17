@@ -50,7 +50,7 @@ resources:
     pointer:
       sourceName: "cluster-dcl"
 
-  - name: jatin-cluster
+  - name: jatin-cluste
     type: cluster
     integration: jatin-dcl
     pointer:
