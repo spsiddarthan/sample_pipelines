@@ -17,11 +17,11 @@ resources:
     seed:
       versionName: "dc.pipeline.3"
 
-  # - name: tri-cluster
-  #   type: tripubCluster
-  #   integration: jatin-triton
-  #   version:
-  #     region: "us-east-1"
+  - name: tri-cluster
+    type: tripubCluster
+    integration: jatin-triton
+    pointer:
+      region: "us-east-1"
 
   # - name: ecs-cluster
   #   type: ecsCluster
@@ -31,12 +31,12 @@ resources:
   #   version:
   #     region: "us-west-2"
 
-  - name: gkeCluster
-    type: gkeCluster
-    integration: jatin-gke
-    pointer:
-      sourceName: "small-cluster"
-      region: "us-east1-d"
+  # - name: gkeCluster
+  #   type: gkeCluster
+  #   integration: jatin-gke
+  #   pointer:
+  #     sourceName: "small-cluster"
+  #     region: "us-east1-d"
 
   # - name: ddc-cluster
   #   type: ddcCluster

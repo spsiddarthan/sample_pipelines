@@ -1,9 +1,16 @@
 jobs:
-  - name: beta-boxMan
+  - name: beta-boxMan-1
     type: manifest
     steps:
-      - GET: box-sn
-      - GET: trigger-dv-man
+      - IN: box-sn
+      - IN: trigger-dv-man
+      - TASK: managed
+
+  - name: beta-boxMan-2
+    type: manifest
+    steps:
+      - IN: box-nginx
+      - IN: trigger-dv-man
       - TASK: managed
 
   # - name: b-ecs-deploy
@@ -11,33 +18,33 @@ jobs:
   #   options:
   #     deployMethod: upgrade
   #   steps:
-  #     - GET: b-box-man
-  #     - GET: ecs-cluster
+  #     - IN: b-box-man
+  #     - IN: ecs-cluster
 
-  # - name: b-tri-deploy
-  #   type: tripubDeploy
-  #   options:
-  #     deployMethod: upgrade
-  #   steps:
-  #     - GET: b-box-man
-  #     - GET: tri-cluster
-
-  - name: beta-gkeDeploy
-    type: gkeDeploy
+  - name: b-tri-deploy
+    type: tripubDeploy
     steps:
-      - GET: beta-boxMan
-      - GET: gkeCluster
+      - IN: b-box-man
+      - IN: tri-cluster
       - TASK: managed
-        deployMethod: blueGreen
+        deployMethod: upgrade
+
+  # - name: beta-gkeDeploy
+  #   type: gkeDeploy
+  #   steps:
+  #     - IN: beta-boxMan
+  #     - IN: gkeCluster
+  #     - TASK: managed
+  #       deployMethod: blueGreen
 
   # - name: b-ddc-deploy
   #   type: ddcDeploy
   #   steps:
-  #     - GET: b-box-man
-  #     - GET: ddc-cluster
+  #     - IN: b-box-man
+  #     - IN: ddc-cluster
 
   # - name: b-dcl-deploy
   #   type: dclDeploy
   #   steps:
-  #     - GET: b-box-man
-  #     - GET: dcl-cluster
+  #     - IN: b-box-man
+  #     - IN: dcl-cluster
