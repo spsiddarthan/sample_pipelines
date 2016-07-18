@@ -24,7 +24,7 @@ resources:
   #     region: "us-east-1"
 
   - name: ecs-cluster
-    type: ecsCluster
+    type: cluster
     integration: jatin-ecs
     pointer:
       sourceName: "testCL"

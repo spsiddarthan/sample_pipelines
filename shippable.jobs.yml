@@ -15,10 +15,8 @@ jobs:
 
   - name: b-ecs-deploy
     type: ecsDeploy
-    options:
-      deployMethod: upgrade
     steps:
-      - IN: beta-boxMan-1
+      - IN: beta-boxMan-2
       - IN: ecs-cluster
       - TASK: managed
         deployMethod: upgrade
