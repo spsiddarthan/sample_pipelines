@@ -23,13 +23,12 @@ resources:
   #   pointer:
   #     region: "us-east-1"
 
-  # - name: ecs-cluster
-  #   type: ecsCluster
-  #   integration: jatin-ecs
-  #   pointer:
-  #     sourceName: "testCL"
-  #   version:
-  #     region: "us-west-2"
+  - name: ecs-cluster
+    type: ecsCluster
+    integration: jatin-ecs
+    pointer:
+      sourceName: "testCL"
+      region: "us-west-2"
 
   # - name: gkeCluster
   #   type: gkeCluster
@@ -44,17 +43,17 @@ resources:
   #   pointer:
   #     sourceName: "ddc-cluster"
 
-  - name: dcl-cluster-1
-    type: dclCluster
-    integration: jatin-dcl
-    pointer:
-      sourceName: "cluster-dcl"
+  # - name: dcl-cluster-1
+  #   type: dclCluster
+  #   integration: jatin-dcl
+  #   pointer:
+  #     sourceName: "cluster-dcl"
 
-  - name: jatin-cluster-1
-    type: cluster
-    integration: jatin-dcl
-    pointer:
-      sourceName: "cluster-dcl"
+  # - name: jatin-cluster-1
+  #   type: cluster
+  #   integration: jatin-dcl
+  #   pointer:
+  #     sourceName: "cluster-dcl"
 
   # - name: box-params
   #   type: params
@@ -67,12 +66,12 @@ resources:
   #       DB_PASSWORD: "aye0aye"
   #       ENVIRONMENT: "test-aws"
 
-  - name: box-params-override-1
-    type: params
-    version:
-      params:
-        foo: "bar"
-        DB_PORT: "20000"
+  # - name: box-params-override-1
+  #   type: params
+  #   version:
+  #     params:
+  #       foo: "bar"
+  #       DB_PORT: "20000"
 
   # - name: box-params-2
   #   type: params
