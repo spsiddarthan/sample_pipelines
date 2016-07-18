@@ -13,13 +13,21 @@ jobs:
       - IN: trigger-dv-man
       - TASK: managed
 
+  # - name: b-ecs-deploy
+  #   type: ecsDeploy
+  #   steps:
+  #     - IN: beta-boxMan-2
+  #     - IN: ecs-cluster
+  #     - TASK: managed
+  #       deployMethod: upgrade
+
   - name: b-ecs-deploy
     type: ecsDeploy
     steps:
-      - IN: beta-boxMan-2
+      - IN: beta-boxMan-1
       - IN: ecs-cluster
       - TASK: managed
-        deployMethod: upgrade
+        deployMethod: blueGreen
 
   # - name: b-tri-deploy
   #   type: tripubDeploy
