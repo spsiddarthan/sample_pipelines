@@ -2,7 +2,7 @@ jobs:
   - name: beta-boxMan-1
     type: manifest
     steps:
-      - IN: box-sn-1
+      - IN: box-nginx-1
       - IN: trigger-dv-man
       - TASK: managed
 
