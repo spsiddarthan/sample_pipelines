@@ -26,14 +26,14 @@ resources:
     type: cluster
     integration: jatin-triton
     pointer:
-      region: "us-east"
+      region: "us-east-1"
 
-  # - name: ecs-cluster
-  #   type: cluster
-  #   integration: jatin-ecs
-  #   pointer:
-  #     sourceName: "testCL"
-  #     region: "us-west-2"
+  - name: ecs-cluster
+    type: cluster
+    integration: jatin-ecs
+    pointer:
+      sourceName: "testCL"
+      region: "us-west-2"
 
   # - name: gkeCluster
   #   type: gkeCluster
