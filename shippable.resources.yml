@@ -17,10 +17,10 @@ resources:
     seed:
       versionName: "dc.pipeline.3"
 
-  - name: minutes
-    type: time
-    seed:
-      interval: "*/2 * * * *"
+  # - name: minutes
+  #   type: time
+  #   seed:
+  #     interval: "*/2 * * * *"
 
   # - name: nightly
   #   type: time
