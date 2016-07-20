@@ -1,17 +1,17 @@
 jobs:
-  - name: beta-boxMan-1
-    type: manifest
-    steps:
-      - IN: box-nginx-1
-      - IN: trigger-dv-man
-      - TASK: managed
+  # - name: beta-boxMan-1
+  #   type: manifest
+  #   steps:
+  #     - IN: box-nginx-1
+  #     - IN: trigger-dv-man
+  #     - TASK: managed
 
-  - name: beta-boxMan-2
-    type: manifest
-    steps:
-      - IN: box-sn-1
-      - IN: trigger-dv-man
-      - TASK: managed
+  # - name: beta-boxMan-2
+  #   type: manifest
+  #   steps:
+  #     - IN: box-sn-1
+  #     - IN: trigger-dv-man
+  #     - TASK: managed
 
   # - name: b-ecs-deploy
   #   type: ecsDeploy
@@ -21,13 +21,13 @@ jobs:
   #     - TASK: managed
   #       deployMethod: upgrade
 
-  - name: b-ecs-deploy
-    type: ecsDeploy
-    steps:
-      - IN: beta-boxMan-1
-      - IN: ecs-cluster
-      - TASK: managed
-        deployMethod: upgrade
+  # - name: b-ecs-deploy
+  #   type: ecsDeploy
+  #   steps:
+  #     - IN: beta-boxMan-1
+  #     - IN: ecs-cluster
+  #     - TASK: managed
+  #       deployMethod: upgrade
 
   # - name: b-tri-deploy
   #   type: tripubDeploy

@@ -17,18 +17,23 @@ resources:
     seed:
       versionName: "dc.pipeline.3"
 
+  - name: nightly
+    type: time
+    seed:
+      interval: "* 20 * * *"
+
   # - name: tri-cluster
   #   type: tripubCluster
   #   integration: jatin-triton
   #   pointer:
   #     region: "us-east-1"
 
-  - name: ecs-cluster
-    type: cluster
-    integration: jatin-ecs
-    pointer:
-      sourceName: "testCL"
-      region: "us-west-2"
+  # - name: ecs-cluster
+  #   type: cluster
+  #   integration: jatin-ecs
+  #   pointer:
+  #     sourceName: "testCL"
+  #     region: "us-west-2"
 
   # - name: gkeCluster
   #   type: gkeCluster
