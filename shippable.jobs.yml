@@ -2,7 +2,7 @@ jobs:
   - name: beta-boxMan-1
     type: manifest
     steps:
-      - IN: box-nginx-1
+      - IN: sn-driftking
       - IN: box-opts
       - IN: trigger-dv-man
       - TASK: managed
@@ -10,7 +10,7 @@ jobs:
   - name: beta-boxMan-2
     type: manifest
     steps:
-      - IN: box-sn-1
+      - IN: sn-driftking
       - IN: box-opts
       - IN: trigger-dv-man
       - TASK: managed
@@ -35,18 +35,17 @@ jobs:
     type: tripubDeploy
     steps:
       - IN: beta-boxMan-1
-      - IN: beta-boxMan-2
       - IN: tri-cluster
       - TASK: managed
         deployMethod: upgrade
 
-  # - name: b-tri-deploy-2
-  #   type: tripubDeploy
-  #   steps:
-  #     - IN: beta-boxMan-2
-  #     - IN: tri-cluster
-  #     - TASK: managed
-  #       deployMethod: blueGreen
+  - name: b-tri-deploy-2
+    type: tripubDeploy
+    steps:
+      - IN: beta-boxMan-2
+      - IN: tri-cluster
+      - TASK: managed
+        deployMethod: blueGreen
 
   # - name: b-tri-deploy-bg
   #   type: tripubDeploy

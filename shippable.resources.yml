@@ -17,6 +17,14 @@ resources:
     seed:
       versionName: "dc.pipeline.3"
 
+  - name: sn-driftking
+    type: image
+    integration: jatin-docker
+    pointer:
+      sourceName: "scriptnull/debian"
+    seed:
+      versionName: "driftking"
+
   - name: box-opts
     type: dockerOptions
     version:
@@ -29,6 +37,11 @@ resources:
         - "8.8.8.8"
       dnsSearch:
         - "10.10.10.10"
+      user: "driftking"
+      workingDir: "/makemeworking"
+      cmd:
+        - "node"
+        - "job.js"
 
   # - name: minutes
   #   type: time
