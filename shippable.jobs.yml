@@ -35,17 +35,18 @@ jobs:
     type: tripubDeploy
     steps:
       - IN: beta-boxMan-1
+      - IN: beta-boxMan-2
       - IN: tri-cluster
       - TASK: managed
         deployMethod: upgrade
 
-  - name: b-tri-deploy-2
-    type: tripubDeploy
-    steps:
-      - IN: beta-boxMan-2
-      - IN: tri-cluster
-      - TASK: managed
-        deployMethod: blueGreen
+  # - name: b-tri-deploy-2
+  #   type: tripubDeploy
+  #   steps:
+  #     - IN: beta-boxMan-2
+  #     - IN: tri-cluster
+  #     - TASK: managed
+  #       deployMethod: blueGreen
 
   # - name: b-tri-deploy-bg
   #   type: tripubDeploy
