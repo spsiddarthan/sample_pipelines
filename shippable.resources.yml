@@ -17,6 +17,19 @@ resources:
     seed:
       versionName: "dc.pipeline.3"
 
+  - name: box-opts
+    type: dockerOptions
+    version:
+      publishAllPorts : true
+      labels:
+        jatin : triton
+        vishnu : tripub
+        joyent : badServer
+      dnsServers:
+        - "8.8.8.8"
+      dnsSearch:
+        - "10.10.10.10"
+
   # - name: minutes
   #   type: time
   #   seed:
@@ -27,11 +40,11 @@ resources:
   #   seed:
   #     interval: "* 20 * * *"
 
-  # - name: tri-cluster
-  #   type: cluster
-  #   integration: jatin-triton
-  #   pointer:
-  #     region: "us-east-1"
+  - name: tri-cluster
+    type: cluster
+    integration: jatin-triton
+    pointer:
+      region: "us-east-2"
 
   # - name: ecs-cluster
   #   type: cluster
