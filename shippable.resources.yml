@@ -25,23 +25,34 @@ resources:
     seed:
       versionName: "driftking"
 
-  # - name: box-opts
-  #   type: dockerOptions
-  #   version:
-  #     publishAllPorts : true
-  #     labels:
-  #       jatin : triton
-  #       vishnu : tripub
-  #       joyent : badServer
-  #     dnsServers:
-  #       - "8.8.8.8"
-  #     dnsSearch:
-  #       - "10.10.10.10"
-  #     user: "driftking"
-  #     workingDir: "/makemeworking"
-  #     cmd:
-  #       - "node"
-  #       - "job.js"
+  - name: sn-entrypoint
+    type: image
+    integration: scriptnull-docker
+    pointer:
+      sourceName: "scriptnull/debian"
+    seed:
+      versionName: "entrypoint"
+
+  - name: box-opts
+    type: dockerOptions
+    version:
+      publishAllPorts : true
+      labels:
+        jatin : triton
+        vishnu : tripub
+        joyent : badServer
+      dnsServers:
+        - "8.8.8.8"
+      dnsSearch:
+        - "10.10.10.10"
+      logConfig:
+        type: "json-file"
+        options:
+          max-size: 50m
+      privileged: true
+      entryPoint:
+        - '/bin/sh'
+        - './entrypoint2.sh'
 
   # - name: minutes
   #   type: time

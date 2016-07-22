@@ -2,7 +2,7 @@ jobs:
   - name: beta-boxMan-1
     type: manifest
     steps:
-      - IN: sn-driftking
+      - IN: sn-entrypoint
       - IN: trigger-dv-man
 
   - name: beta-boxMan-2
@@ -28,21 +28,21 @@ jobs:
   #     - TASK: managed
   #       deployMethod: upgrade
 
-  # - name: b-tri-deploy-1
-  #   type: tripubDeploy
-  #   steps:
-  #     - IN: beta-boxMan-1
-  #     - IN: tri-cluster
-  #     - TASK: managed
-  #       deployMethod: upgrade
+  - name: b-tri-deploy-1
+    type: tripubDeploy
+    steps:
+      - IN: sn-entrypoint
+      - IN: tri-cluster
+      - TASK: managed
+        deployMethod: upgrade
 
-  # - name: b-tri-deploy-2
-  #   type: tripubDeploy
-  #   steps:
-  #     - IN: beta-boxMan-2
-  #     - IN: tri-cluster
-  #     - TASK: managed
-  #       deployMethod: blueGreen
+  - name: b-tri-deploy-2
+    type: tripubDeploy
+    steps:
+      - IN: sn-entrypoint
+      - IN: tri-cluster
+      - TASK: managed
+        deployMethod: blueGreen
 
   # - name: b-tri-deploy-bg
   #   type: tripubDeploy
