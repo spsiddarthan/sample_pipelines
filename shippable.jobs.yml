@@ -3,14 +3,15 @@ jobs:
     type: manifest
     steps:
       - IN: sn-entrypoint
+      - IN: box-opts
       - IN: trigger-dv-man
 
   - name: beta-boxMan-2
     type: manifest
     steps:
       - IN: sn-entrypoint
+      - IN: box-opts
       - IN: trigger-dv-man
-      - TASK: managed
 
   # - name: b-ecs-deploy
   #   type: ecsDeploy
@@ -31,7 +32,7 @@ jobs:
   - name: b-tri-deploy-1
     type: tripubDeploy
     steps:
-      - IN: beta-boxMan-2
+      - IN: beta-boxMan-1
       - IN: tri-cluster
       - TASK: managed
         deployMethod: upgrade
@@ -39,7 +40,7 @@ jobs:
   - name: b-tri-deploy-2
     type: tripubDeploy
     steps:
-      - IN: beta-boxMan-2
+      - IN: beta-boxMan-1
       - IN: tri-cluster
       - TASK: managed
         deployMethod: blueGreen
