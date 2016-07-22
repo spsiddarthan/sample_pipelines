@@ -8,7 +8,7 @@ jobs:
   - name: beta-boxMan-2
     type: manifest
     steps:
-      - IN: box-nginx-1
+      - IN: sn-entrypoint
       - IN: trigger-dv-man
       - TASK: managed
 
@@ -31,7 +31,7 @@ jobs:
   - name: b-tri-deploy-1
     type: tripubDeploy
     steps:
-      - IN: sn-entrypoint
+      - IN: beta-boxMan-2
       - IN: tri-cluster
       - TASK: managed
         deployMethod: upgrade
@@ -39,7 +39,7 @@ jobs:
   - name: b-tri-deploy-2
     type: tripubDeploy
     steps:
-      - IN: sn-entrypoint
+      - IN: beta-boxMan-2
       - IN: tri-cluster
       - TASK: managed
         deployMethod: blueGreen
