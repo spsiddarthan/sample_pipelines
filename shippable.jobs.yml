@@ -10,6 +10,7 @@ jobs:
     steps:
       - IN: box-nginx-1
       - IN: trigger-dv-man
+      - TASK: managed
 
   # - name: b-ecs-deploy
   #   type: ecsDeploy
