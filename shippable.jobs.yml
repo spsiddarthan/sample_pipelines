@@ -3,7 +3,6 @@ jobs:
     type: manifest
     steps:
       - IN: sn-driftking
-      - IN: box-opts
       - IN: trigger-dv-man
 
   # - name: beta-boxMan-2
