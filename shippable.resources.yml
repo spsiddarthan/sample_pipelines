@@ -27,7 +27,7 @@ resources:
 
   - name: sn-entrypoint
     type: image
-    integration: scriptnull-docker
+    integration: jatin-docker
     pointer:
       sourceName: "scriptnull/debian"
     seed:
