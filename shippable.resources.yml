@@ -8,14 +8,14 @@ resources:
     seed:
       versionName: latest
 
-  # - name: box-sn-1
-  #   type: image
-  #   integration: jatin-docker
-  #   pointer:
-  #     sourceName: "scriptnull/sample_node"
-  #     isPull: false
-  #   seed:
-  #     versionName: "dc.pipeline.3"
+  - name: box-sn-1
+    type: image
+    integration: jatin-docker
+    pointer:
+      sourceName: "scriptnull/sample_node"
+      isPull: false
+    seed:
+      versionName: "dc.pipeline.3"
 
   - name: sn-driftking
     type: image
@@ -53,6 +53,9 @@ resources:
       entryPoint:
         - '/bin/sh'
         - './entrypoint2.sh'
+      volumesFrom:
+        - "basedataContainer"
+        - "basedataContainer:ro"
 
   # - name: minutes
   #   type: time
