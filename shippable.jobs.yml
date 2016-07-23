@@ -2,14 +2,14 @@ jobs:
   - name: beta-boxMan-1
     type: manifest
     steps:
-      - IN: box-nginx-1
+      - IN: box-sn-1
       - IN: box-opts
       - IN: trigger-dv-man
 
   - name: beta-boxMan-2
     type: manifest
     steps:
-      - IN: box-sn-1
+      - IN: box-nginx-1
       - IN: box-opts
       - IN: trigger-dv-man
 

@@ -49,13 +49,8 @@ resources:
         type: "json-file"
         options:
           max-size: 50m
-      privileged: true
-      entryPoint:
-        - '/bin/sh'
-        - './entrypoint2.sh'
-      volumesFrom:
-        - "basedataContainer"
-        - "basedataContainer:ro"
+      volumes:
+        - "v1"
 
   # - name: minutes
   #   type: time
