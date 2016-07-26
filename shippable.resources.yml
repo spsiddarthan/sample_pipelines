@@ -1,5 +1,5 @@
 resources:
-  - name: box-nginx-1
+  - name: box-nginx-b
     type: image
     integration: jatin-docker
     pointer:
@@ -8,7 +8,7 @@ resources:
     seed:
       versionName: latest
 
-  - name: box-sn-1
+  - name: box-sn-b
     type: image
     integration: jatin-docker
     pointer:
@@ -75,7 +75,7 @@ resources:
   #     sourceName: "testC"
   #     region: "us-west-2"
 
-  - name: gkeCluster
+  - name: gkeCluster-b
     type: cluster
     integration: jatin-gke
     pointer:
