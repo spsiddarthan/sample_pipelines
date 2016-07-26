@@ -3,14 +3,12 @@ jobs:
     type: manifest
     steps:
       - IN: box-sn-1
-      - IN: box-opts
       - IN: trigger-dv-man
 
   - name: beta-boxMan-2
     type: manifest
     steps:
       - IN: box-nginx-1
-      - IN: box-opts
       - IN: trigger-dv-man
 
   # - name: b-ecs-deploy
@@ -29,21 +27,21 @@ jobs:
   #     - TASK: managed
   #       deployMethod: upgrade
 
-  - name: b-tri-deploy-1
-    type: tripubDeploy
-    steps:
-      - IN: beta-boxMan-1
-      - IN: tri-cluster
-      - TASK: managed
-        deployMethod: upgrade
+  # - name: b-tri-deploy-1
+  #   type: tripubDeploy
+  #   steps:
+  #     - IN: beta-boxMan-1
+  #     - IN: tri-cluster
+  #     - TASK: managed
+  #       deployMethod: upgrade
 
-  - name: b-tri-deploy-2
-    type: tripubDeploy
-    steps:
-      - IN: beta-boxMan-2
-      - IN: tri-cluster
-      - TASK: managed
-        deployMethod: blueGreen
+  # - name: b-tri-deploy-2
+  #   type: tripubDeploy
+  #   steps:
+  #     - IN: beta-boxMan-2
+  #     - IN: tri-cluster
+  #     - TASK: managed
+  #       deployMethod: blueGreen
 
   # - name: b-tri-deploy-bg
   #   type: tripubDeploy
@@ -54,13 +52,21 @@ jobs:
   #     - TASK: managed
   #       deployMethod: blueGreen
 
-  # - name: beta-gkeDeploy
-  #   type: gkeDeploy
-  #   steps:
-  #     - IN: beta-boxMan
-  #     - IN: gkeCluster
-  #     - TASK: managed
-  #       deployMethod: blueGreen
+  - name: beta-gkeDeploy-1
+    type: deploy
+    steps:
+      - IN: beta-boxMan-1
+      - IN: gkeCluster
+      - TASK: managed
+        deployMethod: blueGreen
+
+  - name: beta-gkeDeploy-2
+    type: deploy
+    steps:
+      - IN: beta-boxMan-2
+      - IN: gkeCluster
+      - TASK: managed
+        deployMethod: upgrade
 
   # - name: b-ddc-deploy
   #   type: ddcDeploy

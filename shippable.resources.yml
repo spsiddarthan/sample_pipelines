@@ -17,40 +17,40 @@ resources:
     seed:
       versionName: "dc.pipeline.3"
 
-  - name: sn-driftking
-    type: image
-    integration: jatin-docker
-    pointer:
-      sourceName: "scriptnull/debian"
-    seed:
-      versionName: "driftking"
+  # - name: sn-driftking
+  #   type: image
+  #   integration: jatin-docker
+  #   pointer:
+  #     sourceName: "scriptnull/debian"
+  #   seed:
+  #     versionName: "driftking"
 
-  - name: sn-entrypoint
-    type: image
-    integration: jatin-docker
-    pointer:
-      sourceName: "scriptnull/debian"
-    seed:
-      versionName: "entrypoint"
+  # - name: sn-entrypoint
+  #   type: image
+  #   integration: jatin-docker
+  #   pointer:
+  #     sourceName: "scriptnull/debian"
+  #   seed:
+  #     versionName: "entrypoint"
 
-  - name: box-opts
-    type: dockerOptions
-    version:
-      publishAllPorts : true
-      labels:
-        jatin : triton
-        vishnu : tripub
-        joyent : badServer
-      dnsServers:
-        - "8.8.8.8"
-      dnsSearch:
-        - "10.10.10.10"
-      logConfig:
-        type: "json-file"
-        options:
-          max-size: 50m
-      volumes:
-        - "v1"
+  # - name: box-opts
+  #   type: dockerOptions
+  #   version:
+  #     publishAllPorts : true
+  #     labels:
+  #       jatin : triton
+  #       vishnu : tripub
+  #       joyent : badServer
+  #     dnsServers:
+  #       - "8.8.8.8"
+  #     dnsSearch:
+  #       - "10.10.10.10"
+  #     logConfig:
+  #       type: "json-file"
+  #       options:
+  #         max-size: 50m
+  #     volumes:
+  #       - "v1"
 
   # - name: minutes
   #   type: time
@@ -62,11 +62,11 @@ resources:
   #   seed:
   #     interval: "* 20 * * *"
 
-  - name: tri-cluster
-    type: cluster
-    integration: jatin-triton
-    pointer:
-      region: "us-east-2"
+  # - name: tri-cluster
+  #   type: cluster
+  #   integration: jatin-triton
+  #   pointer:
+  #     region: "us-east-2"
 
   # - name: ecs-cluster
   #   type: cluster
@@ -75,12 +75,12 @@ resources:
   #     sourceName: "testC"
   #     region: "us-west-2"
 
-  # - name: gkeCluster
-  #   type: gkeCluster
-  #   integration: jatin-gke
-  #   pointer:
-  #     sourceName: "small-cluster"
-  #     region: "us-east1-d"
+  - name: gkeCluster
+    type: cluster
+    integration: jatin-gke
+    pointer:
+      sourceName: "small-cluster"
+      region: "us-east1-d"
 
   # - name: ddc-cluster
   #   type: ddcCluster
