@@ -2,13 +2,13 @@ jobs:
   - name: beta-boxMan-b1
     type: manifest
     steps:
-      - IN: box-nginx-b
+      - IN: box-sn-b
       - IN: trigger-dv-man
 
   - name: beta-boxMan-b2
     type: manifest
     steps:
-      - IN: box-sn-b
+      - IN: box-nginx-b
       - IN: trigger-dv-man
 
   # - name: b-ecs-deploy
