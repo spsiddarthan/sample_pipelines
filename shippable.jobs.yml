@@ -1,9 +1,9 @@
 jobs:
-  # - name: beta-boxMan-b1
-  #   type: manifest
-  #   steps:
-  #     - IN: box-sn-b
-  #     - IN: trigger-dv-man
+  - name: beta-boxMan-b1
+    type: manifest
+    steps:
+      - IN: box-sn-b
+      - IN: trigger-dv-man
 
   # - name: beta-boxMan-b2
   #   type: manifest
@@ -52,13 +52,13 @@ jobs:
   #     - TASK: managed
   #       deployMethod: blueGreen
 
-  # - name: beta-gkeDeploy-b1
-  #   type: deploy
-  #   steps:
-  #     - IN: beta-boxMan-b1
-  #     - IN: gkeCluster-b
-  #     - TASK: managed
-  #       deployMethod: blueGreen
+  - name: beta-gkeDeploy-b1
+    type: deploy
+    steps:
+      - IN: beta-boxMan-b1
+      - IN: gkeCluster-b
+      - TASK: managed
+        deployMethod: blueGreen
 
   # - name: beta-gkeDeploy-b2
   #   type: deploy
