@@ -5,11 +5,11 @@ jobs:
       - IN: box-sn-b
       - IN: trigger-dv-man
 
-  # - name: beta-boxMan-b2
-  #   type: manifest
-  #   steps:
-  #     - IN: box-nginx-b
-  #     - IN: trigger-dv-man
+  - name: beta-boxMan-b2
+    type: manifest
+    steps:
+      - IN: box-nginx-b
+      - IN: trigger-dv-man
 
   # - name: b-ecs-deploy
   #   type: ecsDeploy
@@ -60,13 +60,13 @@ jobs:
       - TASK: managed
         deployMethod: blueGreen
 
-  # - name: beta-gkeDeploy-b2
-  #   type: deploy
-  #   steps:
-  #     - IN: beta-boxMan-b2
-  #     - IN: gkeCluster-b
-  #     - TASK: managed
-  #       deployMethod: upgrade
+  - name: beta-gkeDeploy-b2
+    type: deploy
+    steps:
+      - IN: beta-boxMan-b2
+      - IN: gkeCluster-b
+      - TASK: managed
+        deployMethod: upgrade
 
   # - name: b-ddc-deploy
   #   type: ddcDeploy
