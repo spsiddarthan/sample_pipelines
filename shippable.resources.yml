@@ -156,17 +156,17 @@ resources:
   #   pointer:
   #     sourceName: "cluster-dcl"
 
-  # - name: tri-cluster
-  #   type: cluster
-  #   integration: shubh-triton
-  #   pointer:
-  #     region: "us-east-2"
+   - name: tri-cluster
+     type: cluster
+     integration: triton
+     pointer:
+       region: "us-east-2"
 
-  - name: gke-cluster
-    type: cluster
-    integration: jatin-triton
-    pointer:
-      region: "us-east-2"
+  #- name: gke-cluster
+  #  type: cluster
+  #  integration: jatin-triton
+  #  pointer:
+  #    region: "us-east-2"
 
   # - name: stagingVerBase
   #   type: version
