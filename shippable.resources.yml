@@ -1,152 +1,214 @@
 resources:
-  - name: box-nginx-b
-    type: image
-    integration: jatin-docker
-    pointer:
-      sourceName: "library/nginx"
-      isPull: false
-    seed:
-      versionName: latest
-
-  - name: box-sn-b
-    type: image
-    integration: jatin-docker
-    pointer:
-      sourceName: "scriptnull/sample_node"
-      isPull: false
-    seed:
-      versionName: "dc.pipeline.3"
-
-  # - name: sn-driftking
+  # - name: sh-myapp2
   #   type: image
-  #   integration: jatin-docker
+  #   integration: docker
   #   pointer:
   #     sourceName: "scriptnull/debian"
-  #   seed:
-  #     versionName: "driftking"
-
-  # - name: sn-entrypoint
-  #   type: image
-  #   integration: jatin-docker
-  #   pointer:
-  #     sourceName: "scriptnull/debian"
+  #     #sourceName: "busybox"
+  #     isPull: true
   #   seed:
   #     versionName: "entrypoint"
+  #     #versionName: "latest"
 
-  # - name: box-opts
-  #   type: dockerOptions
-  #   version:
-  #     publishAllPorts : true
-  #     labels:
-  #       jatin : triton
-  #       vishnu : tripub
-  #       joyent : badServer
-  #     dnsServers:
-  #       - "8.8.8.8"
-  #     dnsSearch:
-  #       - "10.10.10.10"
-  #     logConfig:
-  #       type: "json-file"
-  #       options:
-  #         max-size: 50m
-  #     volumes:
-  #       - "v1"
+  - name: sn-file
+    type: file
+    pointer:
+      sourceName: "https://raw.githubusercontent.com/scriptnull/vici/master/vici.init.js"
+    seed:
+      versionName: "4"
 
-  # - name: minutes
-  #   type: time
-  #   seed:
-  #     interval: "*/2 * * * *"
-
-  # - name: nightly
-  #   type: time
-  #   seed:
-  #     interval: "* 20 * * *"
-
-  # - name: tri-cluster
-  #   type: cluster
-  #   integration: jatin-triton
+  # - name: sn-file-2
+  #   type: file
   #   pointer:
-  #     region: "us-east-2"
+  #     sourceName: "https://raw.githubusercontent.com/scriptnull/vici/master/vici.init.js"
+  #   seed:
+  #     versionName: "newVersionShip-2"
+
+  # - name: sn-vici-http-js
+  #   type: file
+  #   pointer:
+  #     sourceName: "https://raw.githubusercontent.com/scriptnull/vici/master/vici.http.js"
+  #   seed:
+  #     versionName: "initial"
+
+  # - name: sn-cluster-file
+  #   type: cluster
+  #   integration: scriptnull-node
+  #   pointer:
+  #     sourceName: 'scriptnull-cluster'
+
+  # - name: sn-cluster-image
+  #   type: cluster
+  #   integration: scriptnull-node-image
+  #   pointer:
+  #     sourceName: 'scriptnull-cluster-image'
+
+  # - name: my-params
+  #   type: params
+  #   version:
+  #     params:
+  #       HELLO: "world"
+  #       SHIPPABLE: "code-faster"
+  #       SHIPPABLE1: "code-faster-1"
+  #       SHIPPABLE2: "code-faster-2"
+  #       SHIPPABLE3: "code-faster-3"
+
+  # - name: my-params-2
+  #   type: params
+  #   version:
+  #     params:
+  #       HELLO-2: "world"
+  #       SHIPPABLE-2: "code-faster"
+  #       SHIPPABLE1-2: "code-faster-1"
+  #       SHIPPABLE2-2: "code-faster-2"
+  #       SHIPPABLE3-2: "code-faster-3"
+
+  # - name: sh-myapp1
+  #   type: image
+  #   integration: docker
+  #   pointer:
+  #     sourceName: "scriptnull/sample_node"
+  #     isPull: true
+  #   seed:
+  #     versionName: "myapp1"
+
+  # - name: version-resource
+  #   type: version
+  #   seed:
+  #    # versionName: "0.0.1-beta"
+
+  # - name: sh-myapp3
+  #   type: image
+  #   integration: docker
+  #   pointer:
+  #     sourceName: "scriptnull/sample_node"
+  #     isPull: true
+  #   seed:
+  #     versionName: "myapp3"
 
   # - name: ecs-cluster
   #   type: cluster
-  #   integration: jatin-ecs
+  #   integration: aws
   #   pointer:
-  #     sourceName: "testC"
-  #     region: "us-west-2"
+  #     sourceName : "loadBalanceTest" #name of the cluster we are deploying
+  #     region: "us-east-1"
 
-  - name: gkeCluster-b
-    type: cluster
-    integration: jatin-gke
-    pointer:
-      sourceName: "small-cluster"
-      region: "us-east1-d"
+
+  # - name: sh-lb-1
+  #   type: loadBalancer
+  #   pointer:
+  #     sourceName: EC2Contai-EcsElast-17A64D22JHQLM
+
+  # - name: sh-lb-2
+  #   type: loadBalancer
+  #   pointer:
+  #     sourceName: EC2Contai-EcsElast-17A64D22JHQLM
+
+
+  # - name: sh-docker-opts
+  #   type: dockerOptions
+  #   version:
+  #     memory: 500
+      # portMappings:
+      #   - "80:80"
+      # workingDir: "/app"
+      # privileged: false
+      #readOnlyRootFilesystem: true
+      # network: bridge
+      # logConfig:
+      #   type: json-file
+      #   # options:  # "options" is not required
+      #   #   key11: value11
+      #   #   key22: value22
+      # dnsServers:
+      #   - "127.0.0.1"
+      # dnsSearch:
+      #   - "127.0.0.1"
+      # ulimits:
+      #   - name: nofile
+      #     soft: 50
+      #     hard: 100
+      # labels:
+      #   key1: value1
+      #   key2: value2
+      # links:
+      #   - ShubhContainer123:aliasName
+        #- containerNameTwo:twoAlias
+      # volumesFrom:
+      #   - "plv2-manifest5entrypointdopt_0_0_03c3505a-a99b-46a9-8uu6-7f4d2516aee5"
 
   # - name: ddc-cluster
-  #   type: ddcCluster
-  #   integration: jatin-ddc
+  #   type: cluster
+  #   integration: shubh-ddc
   #   pointer:
-  #     sourceName: "ddc-cluster"
+  #     sourceName: "small-cluster" #name of the cluster we are deploying.
 
-  # - name: dcl-cluster-1
+  # - name: scale
+  #   type: replicas
+  #   version:
+  #     count: 2
+
+
+
+  # - name: dcl-cluster
   #   type: dclCluster
   #   integration: jatin-dcl
   #   pointer:
   #     sourceName: "cluster-dcl"
 
-  # - name: jatin-cluster-1
+  # - name: tri-cluster
   #   type: cluster
-  #   integration: jatin-dcl
+  #   integration: shubh-triton
   #   pointer:
-  #     sourceName: "cluster-dcl"
+  #     region: "us-east-2"
 
-  # - name: box-params
+  - name: gke-cluster
+    type: cluster
+    integration: jatin-triton
+    pointer:
+      region: "us-east-2"
+
+  # - name: stagingVerBase
+  #   type: version
+  #   seed:
+  #     versionName: "1.0.0"
+
+
+  # - name: tri-cluster
+  #   type: cluster
+  #   integration: shubh-triton
+  #   pointer:
+  #     region: "us-east-2"
+  #     sourceName: "shubh"
+    # version:
+    #   params:
+    #     pipelinev2: fleming
+
+  # - name: dv-params
   #   type: params
   #   version:
   #     params:
-  #       DB_HOST: "ds015700.mlab.com"
-  #       DB_NAME: "ayeaye"
-  #       DB_PORT: "15700"
-  #       DB_USERNAME: "aye0aye"
-  #       DB_PASSWORD: "aye0aye"
-  #       ENVIRONMENT: "test-aws"
+  #       MONGO_API_URL: "localhost:28017"
+  #       #secure: HoVr0VQak5dFoBJr6WeOD8QlZ9k7vkldOJcrR0oqDnzswgTCBG5TLuWkL5R7oIYS2RADcZY0edbrgZ1/3tcaJ+uCA+CKLHUDKB9BrLhuor+YgBP2PPsg6c0St0nihB+dR2ty6upxMnAVih8k6KiTeVSCiqY4KcfQ1T/wgNZEhdRWPkyWpJrpRASYo7Dg5w1sn73TrSKTiuA85D9O6mDWL/sqMbtVVKoNv9jNBUKH9Moeup1tKB7Yd6Pp4ReekdoJGzywGojhoHSnEdOOx7FMGkJZcZEY+BMlOikBq08qSk9S08E00bweoVZ62cunR0eK/Y4RkJm6LdHXs1u2atUKiA==
+  #       #secure: G9mAGNS6RrMim/ahSP99MyIoiNzJdfuGbByevM4kzM3uqED1JPq4cIYoqZOs4fgXujpsSsDRmV840BjmV9b2pdEFQZSM0p41jfX9F8Efjt1381DDK/yej+vOibHNFaqAlkTfkft2ori9I7feNXtIdh1L+e/ncThnXbZ52bcxYobVUjmMQkzV/F0e1D1PCekZ+D/phjN5W8E41kadFgfQFLFZgkT/NkccTYVM9+pXEKi0nCqyzkLfDRaQSLozEn34YhSViBESVTeDC4d+vEP+t6nJkMCicWAE0CjQ7MSWnBvwG895XhfETVkbU7W46yAWwafxjuvORAmTgXhhD20dzg==
+  #       secure: GIFzp/NNbDn7L7YRuUrvidxqXsAy6h3zzUOiljrzWQgd8DvUo5hirwU5CInkapIJsjQarEVujo2uFUG52M3jIx7/YNOs92/FcF6EXH23MLSU+0c+Q3RAbzEGvSIguVJXoYI7SC+kECgA+aVikr8wTPT0u2JbA/7TjcCV8LsKfEEg4ARxjJgzLpiMpLq3Ss8zMvmJUBG89lYniy1ljdkBAVxp2TuX5EzC0wTm1VrMW+tRHK1V9V89HXrK38a9qw/ZV3tJc72a1MPnRb7rI+dBb+ffZUbrSI9qfCbJK5hOAhfDvnY7rymIQTdyEOcP+f8zeA6rAU9fVBajgn/d3B/iGg==
+  # - name: sample_node
+  #   type: syncRepo
+  #   integration: git
+  #   pointer:
+  #     sourceName: ankunath/sample_node
+  #     branch: master
 
-  # - name: box-params-override-1
-  #   type: params
-  #   version:
-  #     params:
-  #       foo: "bar"
-  #       DB_PORT: "20000"
+  # - name: sample_node
+  #   type: gitRepo
+  #   integration: git
+  #   pointer:
+  #     sourceName: ankunath/sample_node
+  #     branch: master
 
-  # - name: box-params-2
-  #   type: params
-  #   version:
-  #     params:
-  #       foo: "boo"
-  #       DB_PORT: "12000"
-
-  # - name: box-opts
-  #   type: dockerOptions
-  #   version:
-  #     memory: 64
-  #     cpuShares: 4
-  #     portMappings:
-  #       - "80:80"
-
-  # - name: box-opts-override
-  #   type: dockerOptions
-  #   version:
-  #     memory: 64
-  #     cpuShares: 2
-
-  # - name: box-scaler
-  #   type: replicas
-  #   version:
-  #     count: 1
-
-  # - name: box-scaler-override
-  #   type: replicas
-  #   version:
-  #     count: 3
-
-
+  # - name: slackNotification
+  #   type: notification
+  #   #integration: slack
+  #   pointer:
+  #     recipients:
+  #       - "#slackchannel"
