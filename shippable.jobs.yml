@@ -92,7 +92,7 @@ jobs:
   - name: deploygce2upgrade
     type: deploy
     steps:
-      - IN: tri-cluster
+      - IN: trip-cluster
       - IN: sn-file-man-16
       - TASK: managed
         deployMethod: upgrade
