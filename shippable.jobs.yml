@@ -75,13 +75,13 @@ jobs:
   #     - IN: ddccluster
   #     - IN: sh-manifestjob1
 
-  # - name: deploytriton
-  #   type: deploy
-  #   steps:
-  #     - IN: tri-cluster
-  #     - IN: sh-manifestjob1
-  #     - TASK: managed
-  #       deployMethod: upgrade
+   - name: deploytriton
+     type: deploy
+     steps:
+       - IN: tri-cluster
+       - IN: sh-manifestjob1
+       - TASK: managed
+         deployMethod: upgrade
 
   # - name: deployecs
   #   type: deploy
@@ -89,13 +89,13 @@ jobs:
   #     - IN: ecs-cluster
   #     - IN: sh-manifestjob1
 
-  - name: deploygce2upgrade
-    type: deploy
-    steps:
-      - IN: gke-cluster
-      - IN: sn-file-man-16
-      - TASK: managed
-        deployMethod: upgrade
+  #- name: deploygce2upgrade
+  #  type: deploy
+  #  steps:
+  #    - IN: gke-cluster
+  #    - IN: sn-file-man-16
+  #    - TASK: managed
+  #      deployMethod: upgrade
 
   # - name: deployddc
   #   type: deploy
