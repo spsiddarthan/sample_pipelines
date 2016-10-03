@@ -156,7 +156,7 @@ resources:
   #   pointer:
   #     sourceName: "cluster-dcl"
 
-  - name: tri-cluster
+  - name: trip-cluster
     type: cluster
     integration: triton
     pointer:
