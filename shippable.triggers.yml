@@ -1,5 +1,8 @@
 triggers:
-   - name: trigger-dv-man
+   - name: sh-trigger
      type: trigger
-     pointer:
-       counter: 54
+     version:
+       counter: 80001088879
+   #   type: trigger
+   #   version:
+   #     message: '2q22qreate a AArelease from staging cluster. triggered:1'
